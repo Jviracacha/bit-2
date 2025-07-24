@@ -6,7 +6,11 @@ import { showPokemons,showError } from '../js/shows.js';
 //const $main =d.querySelector("main");
 
 document.addEventListener ('DOMContentLoaded',()=>{
-    getPokemons();
+    console.log(location);
+    
+    if (location.href.endsWith("products.html")) {
+        getPokemons();
+    }
 }
 );
 

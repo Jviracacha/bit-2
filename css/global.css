@@ -15,5 +15,10 @@ html{
 body {
    background-color: rgb(150, 224, 173); 
    margin: 0;
+   font-size: 1.8rem;
 }
 
+img{
+    width: 100%;
+    height: auto;
+}

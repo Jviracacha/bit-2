@@ -1,0 +1,13 @@
+.pokemons{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+
+}
+
+.pokemon{
+background-color: rgb(70, 146, 233);
+width: 10rem;
+margin: 0;
+border: 1px solid wheat
+}

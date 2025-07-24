@@ -1,18 +1,18 @@
 'use strict';
 
 export function showPokemons(pokemons){
-    let html = '<section>';
+    let html = '';
     for (const pokemon of pokemons){
         html += `
-    <figure> 
+    <figure class="pokemon"> 
     <img src="${pokemon.imgPokemon}" alt="Imagen of ${pokemon.namePokemon}">
     <figcaption>${pokemon.namePokemon}</figcaption>
     </figure>
         `;
     }
-    html += '</section>';
-    const $main = document.querySelector("main");
-    $main.innerHTML = html;
+    
+    const $pokemons = document.querySelector('.pokemons');
+    $pokemons.innerHTML = html;
 }
 
 export function showError(msg){
