@@ -1,21 +1,41 @@
 "use strict";
-import { getPokemons } from "../js/api.js";
+import { getData } from '../js/api.js';
+import { showPokemons,showError } from '../js/shows.js';
 
-const d = document;
 
-const $main =d.querySelector("main");
+//const $main =d.querySelector("main");
 
-d.addEventListener('DOMContentLoaded', async()=>{
-    const Pokemons = await getPokemons();
+document.addEventListener ('DOMContentLoaded',()=>{
+    getPokemons();
+}
+);
 
-    if (Pokemons.message === "success") showPokemons()
+async function getPokemons() {
+    const res = await getData();
+    if (res.message === 'success') 
+        setPokemons(res.data.results);
+    else 
+        showError (res.message);
+}
 
-    //console.log(Pokemons);
-})
+async function getPokemon(result){
+    const res = await getData(result.url);
+    if (res.message === 'success') {
+        const pokemon = res.data;
+        const { name, sprites} = pokemon;
+        return {namePokemon:name, imgPokemon:sprites.front_default};
+    }
+    else 
+        showError (res.message);
+}
 
-function showPokemons(){
-    console.log('showPokemons...');
-    
+async function setPokemons(results) {
+    const pokemons = [];
+    for (const result of results) {
+        const pokemon = await getPokemon(result);
+        pokemons.push(pokemon);
+    }
+    showPokemons(pokemons);
 }
 
 

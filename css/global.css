@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+html{
+    font-size: 75%;
+}
+
+body {
+   background-color: rgb(150, 224, 173); 
+   margin: 0;
+}
+
